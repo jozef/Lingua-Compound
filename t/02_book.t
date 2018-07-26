@@ -17,7 +17,8 @@ plan skip_all =>
 
 subtest 'process t/500-Ratsel-und-Ratselscherze.txt' => sub {
     my $lcomp = Lingua::Compound->new(lang => 'de');
-    $lcomp->add_words($book_file->slurp);
+    $lcomp->add_words($book_file->slurp(iomode => '<:encoding(UTF-8)'));
+    $lcomp->add_words('ratsel');
     cmp_ok(scalar(keys %{$lcomp->words}), '>', 4_000, 'a book with many different words');
 
     eq_or_diff($lcomp->comp_words->{schwarzwaldkreis}, [qw(schwarz wald kreis)],

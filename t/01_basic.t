@@ -43,15 +43,15 @@ subtest 'basic lang => de' => sub {
         'staubsauger compounds'
     );
     eq_or_diff(
-        $lcomp->csv_dump(),
+        $lcomp->as_tsv(),
         join("\n",
-            "cword,locked,compounds",
-            "akkusauger,0,akku sauger",
-            "bodenstaubsauger,0,boden staubsauger staub sauger",
-            "standstaubsauger,0,stand staubsauger staub sauger",
-            "staubsauger,0,staub sauger",
+            'cword	locked	compounds',
+            'akkusauger	0	"akku sauger"',
+            'bodenstaubsauger	0	"boden staubsauger staub sauger"',
+            'standstaubsauger	0	"stand staubsauger staub sauger"',
+            'staubsauger	0	"staub sauger"',
         ),
-        '->csv_dump()',
+        '->as_tsv()',
     );
 };
 
