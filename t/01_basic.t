@@ -50,7 +50,7 @@ subtest 'basic lang => de' => sub {
             'bodenstaubsauger	0	"boden staubsauger staub sauger"',
             'standstaubsauger	0	"stand staubsauger staub sauger"',
             'staubsauger	0	"staub sauger"',
-        ),
+        )."\n",
         '->as_tsv()',
     );
 };

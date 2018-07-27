@@ -199,7 +199,7 @@ sub as_tsv {
         map { $csv->combine(@$_); $csv->string; }
         [qw(cword locked compounds)],
         (map { [ $_, 0, join(' ', @{$comp_words->{$_}}) ]} sort keys %$comp_words),
-    );
+    )."\n";
 }
 
 sub as_pm {
